@@ -1,0 +1,12 @@
+{% extends "base/_base.html"  %}
+{% block content%}
+
+<!--  -->
+<form data-parsley-validate method="POST">
+    {% csrf_token %}
+    {% include 'home/_signupForm.html' %}
+    <input type="submit" value="Save">
+</form> 
+
+
+{% endblock %}
