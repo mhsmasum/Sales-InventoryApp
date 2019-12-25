@@ -48,6 +48,13 @@
     <Compile Include="Home\tests.py" />
     <Compile Include="Home\views.py" />
     <Compile Include="Home\__init__.py" />
+    <Compile Include="ItemGroup\admin.py" />
+    <Compile Include="ItemGroup\apps.py" />
+    <Compile Include="ItemGroup\migrations\__init__.py" />
+    <Compile Include="ItemGroup\models.py" />
+    <Compile Include="ItemGroup\tests.py" />
+    <Compile Include="ItemGroup\views.py" />
+    <Compile Include="ItemGroup\__init__.py" />
     <Compile Include="manage.py" />
     <Compile Include="SalesInventory\__init__.py" />
     <Compile Include="SalesInventory\settings.py" />
@@ -66,6 +73,8 @@
     <Folder Include="app\templates\app\" />
     <Folder Include="Home\" />
     <Folder Include="Home\migrations\" />
+    <Folder Include="ItemGroup\" />
+    <Folder Include="ItemGroup\migrations\" />
     <Folder Include="SalesInventory\" />
     <Folder Include="static\" />
     <Folder Include="static\app-assets\" />
