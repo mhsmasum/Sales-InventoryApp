@@ -1,7 +1,20 @@
-<div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow " data-scroll-to-active="true">
-    <div class="main-menu-content">
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">                       
-            
-        </ul>
-    </div>
-</div>
+        <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow " data-scroll-to-active="true">
+            <div class="main-menu-content">
+                <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">                       
+                       
+                        <li class="nav-item">
+                            <a href="">
+                            <i class="fa fa"></i><span class="menu-title" data-i18n="nav.dash.BasicSetup">Basic Setup</span>
+                                <span class="badge badge badge-info badge-pill float-right mr-2">1</span>
+                            </a>
+                            <ul class="menu-content">
+                                <li class="is-shown">
+                                    <a href="{% url 'itemcategory_list' %}">
+                                    <i class="icon-tag"></i><span class="menu-title" data-i18n="nav.dash.itemcategory">Item Category</span>
+                                </a>
+                                </li>
+                            </ul>
+                        </li>
+                </ul>
+            </div>
+        </div>

@@ -48,6 +48,19 @@
     <Compile Include="Home\tests.py" />
     <Compile Include="Home\views.py" />
     <Compile Include="Home\__init__.py" />
+    <Compile Include="ItemCategory\admin.py" />
+    <Compile Include="ItemCategory\apps.py" />
+    <Compile Include="ItemCategory\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ItemCategory\migrations\__init__.py" />
+    <Compile Include="ItemCategory\models.py" />
+    <Compile Include="ItemCategory\tests.py" />
+    <Compile Include="ItemCategory\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ItemCategory\views.py" />
+    <Compile Include="ItemCategory\__init__.py" />
     <Compile Include="ItemGroup\admin.py" />
     <Compile Include="ItemGroup\apps.py" />
     <Compile Include="ItemGroup\migrations\__init__.py" />
@@ -73,12 +86,16 @@
     <Folder Include="app\templates\app\" />
     <Folder Include="Home\" />
     <Folder Include="Home\migrations\" />
+    <Folder Include="ItemCategory\" />
+    <Folder Include="ItemCategory\migrations\" />
+    <Folder Include="static\appCss\" />
+    <Folder Include="static\appScripts\" />
+    <Folder Include="templates\itemcategory\" />
     <Folder Include="ItemGroup\" />
     <Folder Include="ItemGroup\migrations\" />
     <Folder Include="SalesInventory\" />
     <Folder Include="static\" />
     <Folder Include="static\app-assets\" />
-    <Folder Include="static\app-assets\appScripts\" />
     <Folder Include="static\app-assets\css\" />
     <Folder Include="static\app-assets\css\core\" />
     <Folder Include="static\app-assets\css\core\colors\" />
@@ -371,11 +388,20 @@
     <Folder Include="static\app-assets\vendors\js\tables\jsgrid\" />
     <Folder Include="static\app-assets\vendors\js\timeline\" />
     <Folder Include="static\app-assets\vendors\js\ui\" />
-    <Folder Include="Templates\" />
+    <Folder Include="templates\" />
     <Folder Include="Templates\base\" />
     <Folder Include="Templates\home\" />
+    <Folder Include="templates\itemcategory\includes\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="static\appCss\style.css" />
+    <Content Include="static\appScripts\itemcategory.js" />
+    <Content Include="templates\itemcategory\includes\partial_itemcategory_create.html" />
+    <Content Include="templates\itemcategory\includes\partial_itemcategory_delete.html" />
+    <Content Include="templates\itemcategory\includes\partial_itemcategory_form.html" />
+    <Content Include="templates\itemcategory\includes\partial_itemcategory_update.html" />
+    <Content Include="templates\itemcategory\includes\partial_itemcategory_list.html" />
+    <Content Include="templates\itemcategory\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
@@ -406,7 +432,7 @@
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />
     <Content Include="app\templates\app\loginpartial.html" />
-    <Content Include="static\app-assets\appScripts\Parsley.js" />
+    <Content Include="static\app-assets\js\Parsley.js" />
     <Content Include="static\app-assets\css\app.min.css" />
     <Content Include="static\app-assets\css\bootstrap-extended.min.css" />
     <Content Include="static\app-assets\css\bootstrap.min.css" />
@@ -1505,6 +1531,7 @@
     <Content Include="Templates\home\index.html" />
     <Content Include="Templates\home\signup.html" />
     <Content Include="Templates\home\_signupForm.html" />
+    <Content Include="templates\itemcategory\itemcategory_list.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">

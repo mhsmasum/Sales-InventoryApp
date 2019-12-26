@@ -1,0 +1,34 @@
+.help-block {
+        text-align: right;
+        margin-left: auto;
+        color: red;
+}
+
+.datatable_button {
+    width: 33%;
+    display: inline;
+    float: none;
+}
+
+.datatable_filter {
+    width: 30%;
+    display: inline;
+    float: right;
+}
+
+.datatable_length {
+    width: 30%;
+    display: inline;
+    float: left;
+}
+
+.table td, .table th {
+     border-bottom: 0px solid #E3EBF3; 
+    padding: .5rem;
+}
+.table td:last-child{
+    display:flex;
+}
+.table td:last-child button:first-child {
+    margin-right:5px;
+}

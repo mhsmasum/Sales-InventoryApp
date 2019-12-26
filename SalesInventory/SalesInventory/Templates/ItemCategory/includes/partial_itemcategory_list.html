@@ -1,0 +1,24 @@
+﻿{% for obj in objs %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ obj.itemcategory_title }}</td>
+    <td>{{  obj.itemcategory_title_bangla|default_if_none:'' }}</td>
+    <td>{{ obj.isactive }}</td>
+    <td style="display: flex;">
+      <button type="button"
+              class="btn btn-outline-warning btn-sm btn-edit"
+              data-url="{% url 'itemcategory_update' obj.id %}">
+        <span class="fa fa-pencil-square-o"></span> 
+      </button>
+      <button type="button"
+              class="btn btn-outline-danger btn-sm btn-delete"
+              data-url="{% url 'itemcategory_delete' obj.id %}">
+        <span class="fa fa-trash-o"></span> 
+      </button>
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="5" class="text-center bg-warning" style="display: table-cell;">No Item Category</td>
+  </tr>
+{% endfor %}

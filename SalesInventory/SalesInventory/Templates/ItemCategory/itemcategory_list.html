@@ -1,0 +1,63 @@
+﻿{% extends 'base/_base.html' %}
+{% block title %} Item Category {% endblock %}
+{% block content %}
+
+<div class="card-text">
+    <p>
+        <button type="button" class="btn btn-outline-primary box-shadow-3" id="btn-new" data-url="{% url 'itemcategory_create' %}">
+          <span class="fa fa-plus"></span>
+          New Item Category
+        </button>
+      </p>
+  </div>
+<div>
+  <table class="table table-hover table-responsive" id="table">
+    <thead>
+      <tr>
+        <th>Sl#</th>
+        <th>Category Title</th>
+        <th>Category Title Bangla</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% include 'itemcategory/includes/partial_itemcategory_list.html' %}
+    </tbody>
+  </table>
+</div>  
+<!-- THE MODAL WE WILL BE USING -->
+<div class="modal animated fadeInDown" id="modal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+  </div>
+    {% endblock %}
+
+    {% load static %}
+    {% block javascript %}
+      <script src="{% static 'appScripts/itemcategory.js' %}"></script>
+<script>
+    $('#table').DataTable({
+        bAutoWidth: true,
+        responsive: true,
+        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        //order: [[ 1, "asc" ]],
+        dom: 'Bflrtip',
+        buttons: {
+            dom: {
+                button: {
+                    className: 'btn btn-outline-primary'
+                }
+            },
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        }
+    });
+    $('.dt-buttons').addClass('datatable_button');
+    $('.dataTables_filter').addClass('datatable_filter');
+    $('.dataTables_length').addClass('datatable_length');
+</script>
+    {% endblock %}
