@@ -6,8 +6,11 @@ class ItemGroup(models.Model):
     GroupShortName = models.CharField(max_length=5  )
     IsActive = models.BooleanField(default=True)
     IsDelete = models.BooleanField(default=False)
-    CreateBy = models.CharField(max_length=500  )
-    CreateDate = models.DateTimeField(auto_now_add=True )
+    CreateBy = models.CharField(max_length=500  , blank=True )
+    CreateDate = models.DateTimeField(auto_now_add=True,blank=True )
     UpdateBy = models.CharField(max_length=500 , blank=True,null=True )
     UpdateDate = models.DateTimeField(auto_now=True,blank=True,null=True )
     DeleteBy = models.CharField(max_length=500 , blank=True,null=True )
+
+    def __str__(self):
+        return self.ItemGroupName

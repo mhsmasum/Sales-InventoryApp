@@ -1,0 +1,20 @@
+
+<!--  -->
+<form data-parsley-validate method="POST" >
+    {% csrf_token %}
+    <div class="row" id="divForUomMasterName">
+        <label>Group Name</label>
+        {{masterForm.ItemGroupName}}
+        <!-- <label class="text-danger" >{{masterForm.errors.AppUserName.as_text }}</label> -->
+          
+    </div>
+    <div class="row" id="divForUomMasterShortName">
+        <label>Short Name:</label>
+        {{masterForm.GroupShortName}}
+        <!-- <label class="text-danger" >{{masterForm.errors.AppUserPassword.as_text }}</label> -->
+          
+    </div>
+    <input type="submit" value="Save">
+</form> 
+
+
