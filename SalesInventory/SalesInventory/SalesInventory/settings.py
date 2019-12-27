@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'parsley',
     'Home',
-    'ItemCategory'
+    'ItemCategory',
+    'ItemGroup',
 ]
 
 MIDDLEWARE = [
