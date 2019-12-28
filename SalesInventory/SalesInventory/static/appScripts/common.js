@@ -1,25 +1,30 @@
 $(document).ready(function () {
-    $('#table').DataTable({
-        bAutoWidth: true,
-        responsive: true,
-        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
-        //order: [[ 1, "asc" ]],
-        dom: 'Bflrtip',
-        buttons: {
-            dom: {
-                button: {
-                    className: 'btn btn-outline-primary'
+    if ($($('#table tbody tr')[0]).hasClass('tblRow')){ 
+    datatableDeclare();
+    }
+    function datatableDeclare(){ 
+        $('#table').DataTable().destroy();
+            $('#table').DataTable({
+                bAutoWidth: true,
+                responsive: true,
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                //order: [[ 1, "asc" ]],
+                dom: 'Bflrtip',
+                buttons: {
+                    dom: {
+                        button: {
+                            className: 'btn btn-outline-primary'
+                        }
+                    },
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
                 }
-            },
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
-        }
-    });
-    $('.dt-buttons').addClass('datatable_button');
-    $('.dataTables_filter').addClass('datatable_filter');
-    $('.dataTables_length').addClass('datatable_length');
-
+            });
+            $('.dt-buttons').addClass('datatable_button');
+            $('.dataTables_filter').addClass('datatable_filter');
+            $('.dataTables_length').addClass('datatable_length');
+            }
     /* Functions */
     var loadForm = function () {
         var btn = $(this);
@@ -51,8 +56,12 @@ $(document).ready(function () {
             type: form.attr("method"),
             dataType: 'json',
             success: function (data) {
-                if (data.form_is_valid) {
+                if (data.form_is_valid) {  
+                    debugger; 
                     $("#table tbody").html(data.html_list);
+                    if ($($('#table tbody tr')[0]).hasClass('tblRow')){ 
+                        datatableDeclare();
+                        } 
                     $("#modal").modal("hide");
                     toastr.success("Your Data is "+data.data_operation, "Successfully", { closeButton: !0, progressBar: !0 });
                 }

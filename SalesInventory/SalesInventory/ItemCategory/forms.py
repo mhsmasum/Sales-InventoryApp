@@ -11,16 +11,18 @@ class ItemCategoryForm(ModelForm):
         model = ItemCategory
         
         labels = {
-            'itemcategory_title': "Title:",
-            'itemcategory_title_bangla': "Title (Bangla): ",
-            'isactive':'Status :'
+            'itemcategory_title': 'Title : ',
+            'itemcategory_title_bangla': 'Title (Bangla) : ',
+            'itemcategory_code': 'Code : ',
+            'isactive':'Status : '
            
         }
-        fields = ['itemcategory_title','itemcategory_title_bangla','isactive','created_by','created_date','updated_by','updated_date','deleted_by','deleted_date' ]
+        fields = ['itemcategory_title','itemcategory_title_bangla','itemcategory_code','isactive','created_by','created_date','updated_by','updated_date','deleted_by','deleted_date' ]
         exclude = ('created_by','created_date','updated_by','updated_date','deleted_by','deleted_date')
         widgets = {
             'itemcategory_title': forms.TextInput(),
             'itemcategory_title_bangla': forms.TextInput(),
+            'itemcategory_code': forms.TextInput(),
             'isactive': forms.CheckboxInput(),
             
         }
@@ -33,6 +35,7 @@ class ItemCategoryForm(ModelForm):
         super(ItemCategoryForm, self).__init__(*args, **kwargs)
         self.fields['itemcategory_title'].widget.attrs['class'] = 'form-control'
         self.fields['itemcategory_title_bangla'].widget.attrs['class'] = 'form-control'
+        self.fields['itemcategory_code'].widget.attrs['class'] = 'form-control'
         self.fields['isactive'].widget.attrs['class'] = 'iCheck'
             
 

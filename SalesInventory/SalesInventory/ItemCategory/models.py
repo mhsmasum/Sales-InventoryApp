@@ -4,6 +4,7 @@ from django.db import models
 class ItemCategory(models.Model):
     itemcategory_title= models.CharField(max_length=200)
     itemcategory_title_bangla= models.CharField(max_length=200,null=True,blank=True)
+    itemcategory_code= models.CharField(max_length=200,null=True,blank=True)
     isactive= models.BooleanField(default=True)
 
     created_by= models.CharField(max_length=200,null=True,blank=True)

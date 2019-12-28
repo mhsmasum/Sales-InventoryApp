@@ -1,12 +1,12 @@
 ﻿{% extends 'base/_base.html' %}
-{% block title %} Item Category {% endblock %}
+{% block title %} Item Brand {% endblock %}
 {% block content %}
 
 <div class="card-text">
     <p>
-        <button type="button" class="btn btn-outline-primary box-shadow-3" id="btn-new" data-url="{% url 'itemcategory_create' %}">
+        <button type="button" class="btn btn-outline-primary box-shadow-3" id="btn-new" data-url="{% url 'itembrand_create' %}">
           <span class="fa fa-plus"></span>
-          New Item Category
+          New Item Brand
         </button>
       </p>
   </div>
@@ -15,15 +15,15 @@
     <thead>
       <tr>
         <th>Sl#</th>
-        <th>Category Title</th>
-        <th>Category Title Bangla</th>
-        <th>Category Code</th>
+        <th>Brand Name</th>
+        <th>Brand Name Bangla</th>
+        <th>Brand Code</th>
         <th>Status</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-        {% include 'itemcategory/includes/partial_itemcategory_list.html' %}
+        {% include 'itembrand/includes/partial_itembrand_list.html' %}
     </tbody>
   </table>
 </div>  
