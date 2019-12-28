@@ -27,7 +27,7 @@ class ItemCategoryForm(ModelForm):
         parsley_extras = {
             "itemcategory_title": {
                 "required-message": "Item Category Title Required",
-            }
+            }            
         }
     def __init__(self, *args, **kwargs):
         super(ItemCategoryForm, self).__init__(*args, **kwargs)

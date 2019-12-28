@@ -34,30 +34,3 @@
   </div>
   </div>
     {% endblock %}
-
-    {% load static %}
-    {% block javascript %}
-      <script src="{% static 'appScripts/itemcategory.js' %}"></script>
-<script>
-    $('#table').DataTable({
-        bAutoWidth: true,
-        responsive: true,
-        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
-        //order: [[ 1, "asc" ]],
-        dom: 'Bflrtip',
-        buttons: {
-            dom: {
-                button: {
-                    className: 'btn btn-outline-primary'
-                }
-            },
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
-        }
-    });
-    $('.dt-buttons').addClass('datatable_button');
-    $('.dataTables_filter').addClass('datatable_filter');
-    $('.dataTables_length').addClass('datatable_length');
-</script>
-    {% endblock %}
