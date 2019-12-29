@@ -14,7 +14,8 @@ class ItemGroupForm(ModelForm):
             'IsActive': "Is Active:"
            
         }
-        fields = ['ItemGroupName','GroupShortName' , 'IsActive' ]
+        fields = ['ItemGroupName','GroupShortName' , 'IsActive' ,'CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate']
+        exclude = ('CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate')
         widgets = {
             'ItemGroupName': forms.TextInput(),
             'GroupShortName': forms.TextInput(),
@@ -27,9 +28,12 @@ class ItemGroupForm(ModelForm):
             },
             "GroupShortName": {
                 "required-message": "Group short name required",
+                "minlength":1,
+                
             }
         }
     def __init__(self, *args, **kwargs):
         super(ItemGroupForm, self).__init__(*args, **kwargs)
         self.fields['ItemGroupName'].widget.attrs['class'] = 'form-control'
         self.fields['GroupShortName'].widget.attrs['class'] = 'form-control'
+        self.fields['IsActive'].widget.attrs['class'] = 'iCheck'

@@ -1,13 +1,13 @@
 {% extends 'base/_base.html' %}
-{% block title %} Item Group {% endblock %}
+{% block title %} Supplier {% endblock %}
 {% block content %}
 
 <div class="card-text">
   <p>
-      <button type="button" class="btn btn-outline-primary box-shadow-3" id="btn-new" data-url="{% url 'itemGroup_create' %}" >
+      <button type="button" class="btn btn-outline-primary box-shadow-3"   id="btn-new" data-url="{% url 'supplier_create' %}"  >
         <!--  -->
         <span class="fa fa-plus"></span>
-        New Item Group
+        New Supplier
       </button>
     </p>
 </div>
@@ -17,16 +17,19 @@
     <thead>
       <tr>
         <th>Sl#</th>
-        <th>Group Title</th>
-        <th>Group Short</th>
-        <th>Is Active</th>
+        <th>Supplier</th>
+        <th>Country</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
         <th>Created Date</th>
+        <th>Is Active</th>
         <th>Action</th>
         
       </tr>
     </thead>
     <tbody>
-      {% include 'ItemGroup/includes/partial_itemGroup_list.html' %}
+      {% include 'Supplier/includes/partial_supplier_list.html' %}
     </tbody>
   </table>
 </div> 

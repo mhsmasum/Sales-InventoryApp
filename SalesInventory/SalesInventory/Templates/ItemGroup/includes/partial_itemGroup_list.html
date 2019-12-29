@@ -1,0 +1,19 @@
+
+
+{% for obj in objs  %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{obj.ItemGroupName}}</td>
+    <td>{{obj.GroupShortName}}</td>
+    <td>{{obj.IsActive}}</td>
+    <td>{{obj.CreatedDate}}</td>
+    <td>
+      <button type="button"class="btn btn-outline-warning btn-sm btn-edit" data-url="{% url 'itemGroup_update' obj.id %}">
+        <span class="fa fa-pencil-square-o"></span> 
+      </button>
+      <button type="button" class="btn btn-outline-danger btn-sm btn-delete" data-url="{% url 'itemGroup_delete' obj.id %}">
+        <span class="fa fa-trash-o"></span> 
+      </button>
+    </td>
+  </tr>
+{%endfor%}

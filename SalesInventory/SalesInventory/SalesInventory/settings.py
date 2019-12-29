@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Home',
     'ItemCategory',
     'ItemGroup',
+    'Supplier',
 ]
 
 MIDDLEWARE = [
