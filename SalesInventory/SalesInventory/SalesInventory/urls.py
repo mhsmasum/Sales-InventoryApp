@@ -19,6 +19,8 @@ from Home.views import index , signup , SignupClass
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('itemcategory/',include('ItemCategory.urls')),
+    path('itemcolor/',include('ItemColor.urls')),
+    path('itembrand/',include('ItemBrand.urls')),
     path('',index , name="index"),
     path('home/index',index , name="index"),
     path('home/signup',signup , name="signup"),

@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'ItemCategory',
     'ItemGroup',
     'Supplier',
+    'ItemBrand',
+    'ItemColor'
 ]
 
 MIDDLEWARE = [

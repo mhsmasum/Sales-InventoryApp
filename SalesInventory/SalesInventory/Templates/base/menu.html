@@ -5,7 +5,7 @@
                         <li class="nav-item">
                             <a href="">
                             <i class="fa fa"></i><span class="menu-title" data-i18n="nav.dash.BasicSetup">Basic Setup</span>
-                                <span class="badge badge badge-info badge-pill float-right mr-2">1</span>
+                                <span class="badge badge badge-info badge-pill float-right mr-2">3</span>
                             </a>
                             <ul class="menu-content">
                                 <li class="is-shown">
@@ -19,6 +19,16 @@
                                 </a>
                                 </li>
                                 
+                                <li class="is-shown">
+                                <a href="{% url 'itemcolor_list' %}">
+                                    <i class="icon-tag"></i><span class="menu-title" data-i18n="nav.dash.itemcolor">Item Color</span>
+                                </a>
+                                </li>
+                                <li class="is-shown">
+                                    <a href="{% url 'itembrand_list' %}">
+                                        <i class="icon-tag"></i><span class="menu-title" data-i18n="nav.dash.itembrand">Item Brand</span>
+                                    </a>
+                                    </li>
                             </ul>
                         </li>
                 </ul>
