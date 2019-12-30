@@ -1,0 +1,42 @@
+{% extends 'base/_base.html' %}
+{% block title %} Pack Size {% endblock %}
+{% block content %}
+
+<div class="card-text">
+  <p>
+      <button type="button" class="btn btn-outline-primary box-shadow-3" id="btn-new" data-url="{% url 'packsize_create' %}" >
+        <!--  -->
+        <span class="fa fa-plus"></span>
+        New Pack Size
+      </button>
+    </p>
+</div>
+<div>
+<div class="table-responsive"> 
+  <table class="table table-hover" id="table">
+    <thead>
+      <tr>
+        <th>Sl#</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Is Active</th>
+        <th>Created Date</th>
+        <th>Action</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'ItemPackSize/includes/partial_packSize_list.html' %}
+    </tbody>
+  </table>
+</div> 
+</div>  
+<!-- THE MODAL WE WILL BE USING -->
+<div class="modal animated fadeInDown" id="modal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+  </div>
+{% endblock %}
+

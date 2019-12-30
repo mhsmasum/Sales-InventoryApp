@@ -27,4 +27,5 @@ urlpatterns = [
     path('home/SignupClass',SignupClass.as_view() , name="SignupClass"),
     path('ItemGroup/',include('ItemGroup.urls')),
     path('Supplier/',include('Supplier.urls')),
+    path('PackSize/',include('ItemPackSize.urls')),
 ]
