@@ -1,0 +1,61 @@
+{% load widget_tweaks %}
+
+{% for field in form %}
+  <div class="form-group row {% if field.errors %} has-error{% endif %}">
+    <label class="col-md-3 label-control" for="{{ field.id_for_label }}">{{ field.label }}</label>
+    <div class="col-md-9">
+       {% render_field field %}
+    </div>   
+    {% for error in field.errors %}
+      <p class="help-block">{{ error }}</p>
+    {% endfor %}
+  </div>
+
+{% endfor %}
+<div class="form-group row">
+<div class="col-md-12">
+<table id="tbl" class="table table-bordered">
+<thead class="thead-light">
+<tr>
+    <th>Action</th>
+    <th>UOM</th>
+    <th>UOM Short Name</th>
+    <th>Conversion Value</th>
+    <th style="max-width: 50px;">Is Base UOM</th>
+</tr>
+</thead>
+<tbody>
+      {% for field in formdetails %}      
+          {% if forloop.first or forloop.counter|divisibleby:"6" %}
+          <tr  class="tblRow"><td style="display: flex;"> <button type="button" class="btn btn-outline-primary btn-sm btn-row-add">
+            <span class="fa fa-plus-circle"></span> 
+          </button>
+          <button type="button" class="btn btn-outline-danger btn-sm btn-row-remove">
+            <span class="fa fa-minus-circle"></span> 
+          </button> {{ field }} </td>
+          {% else %}
+            {% if forloop.counter|divisibleby:"5" %}
+            <td>{{ field }}</td>
+          </tr>
+            {% else %}
+            
+            <td>{{ field }}</td>
+            {% endif %}            
+          {% endif %}  
+        {% endfor %}
+
+</tbody>
+</table>
+</div>
+</div>
+<style>
+.table td, .table thead th {
+    padding: .2rem;
+}
+.table thead th {
+  white-space: normal;
+    vertical-align: middle;
+    text-align: center;
+    vertical-align: middle;
+}
+</style>

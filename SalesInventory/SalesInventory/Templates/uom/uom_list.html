@@ -1,12 +1,12 @@
-﻿{% extends 'base/_base.html' %}
-{% block title %} Item Color {% endblock %}
+{% extends 'base/_base.html' %}
+{% block title %} Unit of Measure (UOM) {% endblock %}
 {% block content %}
 
 <div class="card-text">
     <p>
-        <button type="button" class="btn btn-outline-primary box-shadow-3" id="btn-new" data-url="{% url 'itemcolor_create' %}">
+        <button type="button" class="btn btn-outline-primary box-shadow-3" id="btn-new" data-url="{% url 'uom_create' %}">
           <span class="fa fa-plus"></span>
-          New Item Color
+          New UOM
         </button>
       </p>
   </div>
@@ -15,29 +15,32 @@
     <thead>
       <tr>
         <th>Sl#</th>
-        <th>Color Name</th>
-        <th>Color Name Bangla</th>
-        <th>Color Code</th>
+        <th>Unit Basis Name</th>
+        <th>Uom Name</th>
+        <th>Uom Short Name</th>
         <th>Status</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-        {% include 'itemcolor/includes/partial_itemcolor_list.html' %}
+        {% include 'uom/includes/partial_uom_list.html' %}
     </tbody>
   </table>
 </div>  
 <!-- THE MODAL WE WILL BE USING -->
 <div class="modal animated fadeInDown" id="modal" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog">
+  <div class="modal-lg modal-dialog">
     <div class="modal-content">
     </div>
   </div>
   </div>
     {% endblock %}
+    {% load static %}
     {% block javascript %}
+    <script src="{% static 'appScripts/uom.js' %}"></script>
     <script>
-    //localStorage.setItem('activeMenu', 'Item Color');
-    datatableDeclare();
+    //localStorage.setItem('activeMenu', 'Unit of Measure');
+    
     </script>
+    
     {% endblock %}

@@ -1,30 +1,36 @@
-        <div class="main-menu menu-fixed menu-dark menu-accordion menu-shadow " data-scroll-to-active="true">
+        <div class="main-menu menu-fixed menu-dark menu-accordion    menu-shadow " data-scroll-to-active="true">
             <div class="main-menu-content">
-                <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">                       
-                       
-                        <li class="nav-item">
-                            <a href="">
-                            <i class="fa fa"></i><span class="menu-title" data-i18n="nav.dash.BasicSetup">Basic Setup</span>
-                                <span class="badge badge badge-info badge-pill float-right mr-2">3</span>
-                            </a>
-                            <ul class="menu-content">
-                                <li class="is-shown">
-                                    <a href="{% url 'itemcategory_list' %}">
-                                    <i class="icon-tag"></i><span class="menu-title" data-i18n="nav.dash.itemcategory">Item Category</span>
+                <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+
+                    <li class="nav-item">
+                        <a href="#">
+                            <i class="fa fa-home"></i><span class="menu-title" data-i18n="nav.dash.BasicSetup">Basic
+                                Setup</span>
+                            <span class="badge badge badge-info badge-pill float-right mr-2">4</span>
+                        </a>
+                        <ul class="menu-content">
+                            <li>
+                                <a class="menu-item" href="{% url 'itemcategory_list' %}" data-i18n="nav.dash.itemcategory">
+                                    Item Category
                                 </a>
-                                </li>
-                                <li class="is-shown">
-                                <a href="{% url 'itemcolor_list' %}">
-                                    <i class="icon-tag"></i><span class="menu-title" data-i18n="nav.dash.itemcolor">Item Color</span>
+                            </li>
+                            <li>
+                                <a class="menu-item" href="{% url 'itemcolor_list' %}" data-i18n="nav.dash.itemcolor">
+                                    Item Color
                                 </a>
-                                </li>
-                                <li class="is-shown">
-                                    <a href="{% url 'itembrand_list' %}">
-                                        <i class="icon-tag"></i><span class="menu-title" data-i18n="nav.dash.itembrand">Item Brand</span>
-                                    </a>
-                                    </li>
-                            </ul>
-                        </li>
+                            </li>
+                            <li>
+                                <a class="menu-item" href="{% url 'itembrand_list' %}" data-i18n="nav.dash.itembrand">
+                                    Item Brand
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item" href="{% url 'uom_list' %}"  data-i18n="nav.dash.uom">
+                                    Unit of Measure
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

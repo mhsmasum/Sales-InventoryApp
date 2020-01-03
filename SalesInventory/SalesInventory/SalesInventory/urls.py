@@ -22,6 +22,7 @@ urlpatterns = [
     path('itemcategory/',include('ItemCategory.urls')),
     path('itemcolor/',include('ItemColor.urls')),
     path('itembrand/',include('ItemBrand.urls')),
+    path('uom/',include('UnitofMeasure.urls')),
     path('',index , name="index"),
     path('home/index',index , name="index"),
     path('home/signup',signup , name="signup"),
