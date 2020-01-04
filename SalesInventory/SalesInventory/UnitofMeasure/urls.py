@@ -6,4 +6,5 @@ urlpatterns = [
     path('create/', views.uom_create, name='uom_create'),
     path('update/<int:pk>', views.uom_update, name='uom_update'),
     path('delete/<int:pk>', views.uom_delete, name='uom_delete'),
+    path('deletedetails/', views.uom_delete_details, name='uom_delete_details'),
 ]

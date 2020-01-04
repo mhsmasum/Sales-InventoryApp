@@ -12,6 +12,13 @@ class UnitofMeasure(models.Model):
     uom_name= models.CharField(max_length=200)
     uom_shortname= models.CharField(max_length=50)
     isactive= models.BooleanField(default=True)
+    
+    created_by= models.CharField(max_length=200,null=True,blank=True)
+    created_date= models.DateTimeField(null=True,blank=True)
+    updated_by= models.CharField(max_length=200,null=True,blank=True)
+    updated_date= models.DateTimeField(null=True,blank=True)
+    deleted_by= models.CharField(max_length=200,null=True,blank=True)
+    deleted_date= models.DateTimeField(null=True,blank=True)
 
     def __str__(self):
         return self.uom_name

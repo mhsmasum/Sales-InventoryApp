@@ -14,7 +14,8 @@ class UnitofMeasureForm(ModelForm):
             'uom_shortname': 'Uom Short Name : ',
             'isactive':'Status : '
         }
-        fields = ['unitbasisname','uom_name','uom_shortname','isactive']        
+        fields = ['unitbasisname','uom_name','uom_shortname','isactive','created_by','created_date','updated_by','updated_date','deleted_by','deleted_date' ]        
+        exclude = ('created_by','created_date','updated_by','updated_date','deleted_by','deleted_date')
         widgets = {
             'unitbasisname': forms.Select(),
             'uom_name': forms.TextInput(),

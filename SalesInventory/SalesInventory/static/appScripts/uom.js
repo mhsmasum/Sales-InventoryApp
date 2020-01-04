@@ -4,10 +4,8 @@ $(document).ready(function(){
     }
 }); 
 $(document).off("ifChecked", "#tbl tbody .tblRow .isbaseuom").on("ifChecked", "#tbl tbody .tblRow .isbaseuom", function(){
-debugger;
 if($(this).is(':checked')){
     $('#tbl tbody .tblRow').find('.isbaseuom').not(this).iCheck('uncheck');
-//$(this).attr('checked', true);//.iCheck('check');
 }
 $('.iCheck').iCheck({
     checkboxClass: "icheckbox_flat-green",
@@ -32,23 +30,43 @@ $(document).off("click", ".btn-row-add").on("click", ".btn-row-add", function(){
 
 $(document).off("click", ".btn-row-remove").on("click", ".btn-row-remove", function(){
     var tblRow = $(this).closest('.tblRow');
-    var lastRow = $(tblRow).clone().find('input').val('').end();
-    $(tblRow).remove();
-    if($('#tbl tbody tr').length===0){
-        $(lastRow).find('td:last').remove();
-        $(lastRow).append('<td><input type="checkbox"  name="isbaseuom[]" class="isbaseuom iCheck"></td>');
-        $('#tbl tbody').append(lastRow);
-        $('.iCheck').iCheck({
-            checkboxClass: "icheckbox_flat-green",
-            radioClass: "iradio_flat-green"
-        });
-    }    
+    if($(tblRow).find('.uomid').val() === ""){
+        var lastRow = $(tblRow).clone().find('input').val('').end();
+        $(tblRow).remove();
+        if($('#tbl tbody tr').length===0){
+            $(lastRow).find('td:last').remove();
+            $(lastRow).append('<td><input type="checkbox"  name="isbaseuom[]" class="isbaseuom iCheck"></td>');
+            $('#tbl tbody').append(lastRow);
+            $('.iCheck').iCheck({
+                checkboxClass: "icheckbox_flat-green",
+                radioClass: "iradio_flat-green"
+            });
+        }
+    }else{
+        var jsonData = {};
+        jsonData["unitbasisname"] = $.trim($(".unitbasisname").val());
+        jsonData["uom_name"] = $.trim($(".uom_name").val());
+        jsonData["uom_shortname"] = $.trim($(".uom_shortname").val());
+        jsonData["isactive"] = $('.isactive').is(':checked');
+        
+        var jsonObj = [];
+        var detailObj = {};
+        detailObj["uomid"] = $.trim($(tblRow).find('.uomid').val());
+        detailObj["uomdetails_name"] = $.trim($(tblRow).find('.uomdetails_name').val());
+        detailObj["uomdetails_shortname"] =  $.trim($(tblRow).find('.uomdetails_shortname').val());
+        detailObj["convertionvalue"] =$.trim($(tblRow).find('.convertionvalue').val());
+        detailObj["isbaseuom"] = $(tblRow).find('.isbaseuom').is(':checked');
+        jsonObj.push(detailObj);
+        jsonData["UomDetails"] = jsonObj;
+        deleteUomDetails(tblRow,jsonData);
+    }
+    
+    
 });
 
 $(document).off("click", "#btn-saveuom").on("click", "#btn-saveuom", function(){
     var form = $(this).parentsUntil().find('form');
     if($(form).parsley().validate()){
-        debugger;
         var obj=saveobject();
         saveUomForm(form,obj);
         // $('#table').DataTable().destroy();
@@ -58,7 +76,6 @@ $(document).off("click", "#btn-saveuom").on("click", "#btn-saveuom", function(){
 $(document).off("click", "#btn-updateuom").on("click", "#btn-updateuom", function(){
     var form = $(this).parentsUntil().find('form');
     if($(form).parsley().validate()){
-        debugger;
         var obj=saveobject();
         saveUomForm(form,obj);
         // $('#table').DataTable().destroy();
@@ -74,10 +91,6 @@ function saveobject(){
        
        var jsonObj = [];
         $('#tbl tbody tr').each(function(index,tblRow) { 
-            
-            debugger;
-            var uomid = $.trim($(tblRow).find('.uomid').val());
-            
             var detailObj = {};
             detailObj["uomid"] = $.trim($(tblRow).find('.uomid').val());
             detailObj["uomdetails_name"] = $.trim($(tblRow).find('.uomdetails_name').val());
@@ -102,15 +115,47 @@ var saveUomForm = function (form,obj) {
         type: form.attr("method"),
         dataType: 'json',
         success: function (data) {
-            debugger;
             if (data.form_is_valid) {
-                 //$("#table tbody").empty();
-                // $('#table').DataTable().destroy();
                 $("#table tbody").html(data.html_list);
-                
                 datatableDeclare();
                 $("#modal").modal("hide");
                 toastr.success("Your Data is "+data.data_operation, "Successfully", { closeButton: !0, progressBar: !0 });
+            }
+            else {
+                $("#modal .modal-content").html(data.html_form);
+            }
+        },
+        error: function (error) {
+            toastr.error("Error StatusText : "+error.statusText + " And Status : "+error.status, "Error", { closeButton: !0, progressBar: !0 });
+        }
+    });
+    return false;
+};
+
+var deleteUomDetails = function (tblRow,obj) {
+    AjaxSetup();
+    //var form = $(this).parentsUntil().find('form');
+    $.ajax({
+        //contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({'obj': obj}),
+        url: 'deletedetails/',
+        // data: form.serialize(),
+        type: 'POST',
+        dataType: 'json',
+        success: function (data) {
+            if (data.form_is_valid) {
+                var lastRow = $(tblRow).clone().find('input').val('').end();
+                $(tblRow).remove();
+                if($('#tbl tbody tr').length===0){
+                    $(lastRow).find('td:last').remove();
+                    $(lastRow).append('<td><input type="checkbox"  name="isbaseuom[]" class="isbaseuom iCheck"></td>');
+                    $('#tbl tbody').append(lastRow);
+                    $('.iCheck').iCheck({
+                        checkboxClass: "icheckbox_flat-green",
+                        radioClass: "iradio_flat-green"
+                    });
+                }    
+            toastr.success("Your Data is "+data.data_operation, "Successfully", { closeButton: !0, progressBar: !0 });
             }
             else {
                 $("#modal .modal-content").html(data.html_form);
