@@ -10,6 +10,12 @@
                         </a>
                         <ul class="menu-content">
                             <li>
+                                <a href="{% url 'itemGroup_list' %}">
+                                    <i class="icon-tag"></i><span class="menu-title"
+                                        data-i18n="nav.dash.itemcategory">Item Group</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a class="menu-item" href="{% url 'itemcategory_list' %}" data-i18n="nav.dash.itemcategory">
                                     Item Category
                                 </a>
@@ -29,6 +35,13 @@
                                     Unit of Measure
                                 </a>
                             </li>
+                            <li>
+                                <a href="{% url 'supplier_list' %}">
+                                    <i class="icon-tag"></i><span class="menu-title"
+                                        data-i18n="nav.dash.itembrand">Supplier</span>
+                                </a>
+                            </li>
+
                         </ul>
                     </li>
                 </ul>

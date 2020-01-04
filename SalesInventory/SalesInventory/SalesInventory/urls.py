@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from Home.views import index , signup , SignupClass
-from ItemGroup.views import  ItemGroupList
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('itemcategory/',include('ItemCategory.urls')),
@@ -27,7 +26,7 @@ urlpatterns = [
     path('home/index',index , name="index"),
     path('home/signup',signup , name="signup"),
     path('home/SignupClass',SignupClass.as_view() , name="SignupClass"),
-    # path('ItemGroup/ItemGroupSettings',ItemGroupSettings.as_view() , name="ItemGroupSettings"),
-    path('ItemGroup/list',ItemGroupList.as_view() , name="list"),
-    path('ItemGroup/<int:pk>', ItemGroupList.as_view(), name='update'),
+    path('ItemGroup/',include('ItemGroup.urls')),
+    path('Supplier/',include('Supplier.urls')),
+    path('PackSize/',include('ItemPackSize.urls')),
 ]

@@ -1,13 +1,13 @@
 {% extends 'base/_base.html' %}
-{% block title %} Item Group {% endblock %}
+{% block title %} Pack Size {% endblock %}
 {% block content %}
 
 <div class="card-text">
   <p>
-      <button type="button" class="btn btn-outline-primary box-shadow-3" id="btn-new" data-url="{% url 'itemGroup_create' %}" >
+      <button type="button" class="btn btn-outline-primary box-shadow-3" id="btn-new" data-url="{% url 'packsize_create' %}" >
         <!--  -->
         <span class="fa fa-plus"></span>
-        New Item Group
+        New Pack Size
       </button>
     </p>
 </div>
@@ -17,8 +17,8 @@
     <thead>
       <tr>
         <th>Sl#</th>
-        <th>Group Title</th>
-        <th>Group Short</th>
+        <th>Name</th>
+        <th>Description</th>
         <th>Is Active</th>
         <th>Created Date</th>
         <th>Action</th>
@@ -26,7 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      {% include 'ItemGroup/includes/partial_itemGroup_list.html' %}
+      {% include 'ItemPackSize/includes/partial_packSize_list.html' %}
     </tbody>
   </table>
 </div> 

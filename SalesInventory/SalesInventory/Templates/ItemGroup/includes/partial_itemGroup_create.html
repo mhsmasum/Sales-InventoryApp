@@ -1,0 +1,44 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        {% if form.instance.pk is None   %}
+            Create A New Item Group
+            {% else  %}
+            Update Item Group: {{form.instance.ItemGroupName}}
+        {% endif %}
+    </h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    
+    
+</div>
+<div class="modal-body">
+    <form method="post" data-parsley-validate  
+    {% if form.instance.pk is None  or 0  %}
+        action="{% url 'itemGroup_create' %}" 
+        {% else  %}
+        action="{% url 'itemGroup_update' form.instance.pk %}"
+    {% endif %}
+    
+    class="form form-horizontal" id="form-itemGroup"   autocomplete="off">
+            {% csrf_token %}
+            <!--  -->
+        {% include 'ItemGroup/includes/partial_itemGroup_form.html' %}
+        <!-- <input type="submit" class="btn btn-outline-success box-shadow-3" id="btn-save2" value="Create Category"/> -->
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-warning box-shadow-3" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-outline-success box-shadow-3" id="btn-save">
+
+        {% if form.instance.pk is None   %}
+            Create Group
+            {% else  %}
+            Update Group
+        {% endif %}
+
+    </button>
+</div>
+
+
+
