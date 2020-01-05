@@ -40,3 +40,13 @@
   </div>
 {% endblock %}
 
+{% block javascript %}
+    <script>
+    //localStorage.setItem('activeMenu', 'Item Color');
+    $(document).ready(function(){
+    if($('#table tbody .tblRow').length>0){
+        datatableDeclare();
+    }
+}); 
+    </script>
+    {% endblock %}

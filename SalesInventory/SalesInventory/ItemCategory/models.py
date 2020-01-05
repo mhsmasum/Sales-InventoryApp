@@ -1,6 +1,5 @@
 from django.db import models
-from  ItemGroup.models import ItemGroup
-
+from ItemGroup.models import ItemGroup
 
 # Create your models here.
 class ItemCategory(models.Model):
