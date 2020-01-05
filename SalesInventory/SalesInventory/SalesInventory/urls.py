@@ -29,4 +29,5 @@ urlpatterns = [
     path('ItemGroup/',include('ItemGroup.urls')),
     path('Supplier/',include('Supplier.urls')),
     path('PackSize/',include('ItemPackSize.urls')),
+    path('ItemInformation/',include('ItemInformation.urls')),
 ]
