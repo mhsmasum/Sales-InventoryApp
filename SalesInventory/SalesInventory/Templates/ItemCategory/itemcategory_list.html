@@ -37,7 +37,12 @@
     {% endblock %}
     {% block javascript %}
     <script>
+      $(document).ready(function(){
+    if($('#table tbody .tblRow').length>0){
+        datatableDeclare();
+    }
+}); 
     //localStorage.setItem('activeMenu', 'Item Category');
-    datatableDeclare();
+    //datatableDeclare();
     </script>
     {% endblock %}

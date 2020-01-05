@@ -40,6 +40,10 @@
     {% block javascript %}
     <script>
     //localStorage.setItem('activeMenu', 'Item Brand');
-    datatableDeclare();
+    $(document).ready(function(){
+    if($('#table tbody .tblRow').length>0){
+        datatableDeclare();
+    }
+}); 
     </script>
     {% endblock %}

@@ -1,5 +1,4 @@
 from django.db import models
-from django.db import models
 # Create your models here.
 class ItemGroup(models.Model):
     ItemGroupName = models.CharField(max_length=120,null = False,blank=False)

@@ -46,7 +46,7 @@ $(document).ready(function () {
                      //$("#table tbody").empty();
                     // $('#table').DataTable().destroy();
                     $("#table tbody").html(data.html_list);
-                    //datatableDeclare();
+                    datatableDeclare();
                     $("#modal").modal("hide");
                     toastr.success("Your Data is "+data.data_operation, "Successfully", { closeButton: !0, progressBar: !0 });
                 }
@@ -69,8 +69,8 @@ $(document).ready(function () {
         var form = $(this).parentsUntil().find('form');
         if($(form).parsley().validate()){
             saveForm(form);
-            $('#table').DataTable().destroy();
-            datatableDeclare();
+            //$('#table').DataTable().destroy();
+            //datatableDeclare();
         }
     });
     // Update 
