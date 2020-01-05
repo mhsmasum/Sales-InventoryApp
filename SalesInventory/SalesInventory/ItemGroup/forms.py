@@ -1,5 +1,5 @@
 from  django import forms
-from .models import *
+from .models import ItemGroup
 from parsley.decorators import parsleyfy
 from django.forms  import ModelForm
 @parsleyfy

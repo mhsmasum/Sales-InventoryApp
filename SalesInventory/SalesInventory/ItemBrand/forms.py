@@ -18,8 +18,8 @@ class ItemBrandForm(ModelForm):
             'isactive':'Status : '
            
         }
-        fields = ['itembrand_name','itembrand_name_bangla','itembrand_remarks','itembrand_code','isactive','created_by','created_date','updated_by','updated_date','deleted_by','deleted_date' ]
-        exclude = ('created_by','created_date','updated_by','updated_date','deleted_by','deleted_date')
+        fields = ['itembrand_name','itembrand_name_bangla','itembrand_remarks','itembrand_code','isactive','CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate']
+        exclude = ('CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate')
         widgets = {
             'itembrand_name': forms.TextInput(),
             'itembrand_name_bangla': forms.TextInput(),

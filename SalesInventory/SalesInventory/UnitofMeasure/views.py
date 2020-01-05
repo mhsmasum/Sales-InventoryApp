@@ -16,8 +16,8 @@ import json
 
 def uom_list(request):
     assert isinstance(request, HttpRequest)
-    objs = UnitofMeasure.objects.all().filter(deleted_by=None)
-    # print(uom.objects.all().filter(deleted_by=None).count())
+    objs = UnitofMeasure.objects.all().filter(DeletedBy=None)
+    # print(uom.objects.all().filter(DeletedBy=None).count())
     return render(request, 'uom/uom_list.html', {'objs': objs})
 
 def uom_create(request):
@@ -36,8 +36,8 @@ def save_uom_form(request, form,formdetails, template_name, operation_name):
     if request.method == 'POST':
         if form.is_valid():
             new_form =form.save(commit=False)
-            new_form.created_by = request.user.username
-            new_form.created_date=datetime.now()
+            new_form.CreatedBy = request.user.username
+            new_form.CreatedDate=datetime.now()
             new_form.save()
             if operation_name == 'Save':
                 for theDetails in formdetails:
@@ -47,13 +47,13 @@ def save_uom_form(request, form,formdetails, template_name, operation_name):
                         uomdetails_shortname = theDetails['uomdetails_shortname'] ,
                         convertionvalue = theDetails['convertionvalue'] ,
                         isbaseuom = theDetails['isbaseuom'] ,
-                        created_by=request.user.username,
-                        created_date = datetime.now()
+                        CreatedBy=request.user.username,
+                        CreatedDate = datetime.now()
                         )
                     uomDetails.save()
             data['data_operation'] = operation_name
             data['form_is_valid'] = True
-            objs = UnitofMeasure.objects.all().filter(deleted_by=None)
+            objs = UnitofMeasure.objects.all().filter(DeletedBy=None)
             data['html_list'] = render_to_string('uom/includes/partial_uom_list.html', {
                 'objs': objs
             })
@@ -81,8 +81,8 @@ def uom_update(request, pk):
             uom_name=uom_name,
             uom_shortname=uom_shortname,
             isactive=isactive,
-            updated_by=request.user.username,
-            updated_date = datetime.now())
+            UpdatedBy=request.user.username,
+            UpdatedDate = datetime.now())
         uomMaster = UnitofMeasure.objects.get(pk=pk)
         UnitofMeasureDetails.objects.filter(uomid=int(uomid)).delete()
         details= json_obj.get('UomDetails')
@@ -94,12 +94,12 @@ def uom_update(request, pk):
                 uomdetails_shortname = theDetails['uomdetails_shortname'] ,
                 convertionvalue = theDetails['convertionvalue'] ,
                 isbaseuom = theDetails['isbaseuom'] ,
-                created_by=request.user.username,
-                created_date = datetime.now()
+                CreatedBy=request.user.username,
+                CreatedDate = datetime.now()
                 )
         data['data_operation'] = 'Update'
         data['form_is_valid'] = True
-        objs = UnitofMeasure.objects.all().filter(deleted_by=None)
+        objs = UnitofMeasure.objects.all().filter(DeletedBy=None)
         data['html_list'] = render_to_string('uom/includes/partial_uom_list.html', {            
             'objs': objs
         })
@@ -118,16 +118,16 @@ def uom_delete(request, pk):
     data = dict()
     if request.method == 'POST':
         UnitofMeasure.objects.filter(pk=pk).update(
-            deleted_by=request.user.username,
-            deleted_date = datetime.now()
+            DeletedBy=request.user.username,
+            DeletedDate = datetime.now()
             )
         # objDetails = UnitofMeasureDetails.objects.all().filter(uomid=pk)
         # for theDetails in objDetails:
-        #     UnitofMeasureDetails.objects.filter(pk=theDetails.id).update(deleted_by=request.user.username,deleted_date = datetime.now())
+        #     UnitofMeasureDetails.objects.filter(pk=theDetails.id).update(DeletedBy=request.user.username,deleted_date = datetime.now())
         
         data['data_operation'] = 'Delete'
         data['form_is_valid'] = True  # This is just to play along with the existing code
-        objs = UnitofMeasure.objects.all().filter(deleted_by=None)
+        objs = UnitofMeasure.objects.all().filter(DeletedBy=None)
         data['html_list'] = render_to_string('uom/includes/partial_uom_list.html', {
             'objs': objs
         })
@@ -155,8 +155,8 @@ def uom_delete_details(request):
         convertionvalue=convertionvalue,
         isbaseuom=isbaseuom
         ).update(
-            deleted_by=request.user.username,
-            deleted_date = datetime.now()
+            DeletedBy=request.user.username,
+            DeletedDate = datetime.now()
             )
     data = dict()
     data['form_is_valid'] = True

@@ -15,8 +15,8 @@ class ItemCategoryForm(ModelForm):
             'isactive':'Status : ',
             'ItemGroup': 'Group Name : '           
         }
-        fields = ['ItemGroup','itemcategory_title','itemcategory_title_bangla','itemcategory_code','isactive','created_by','created_date','updated_by','updated_date','deleted_by','deleted_date' ]
-        exclude = ('created_by','created_date','updated_by','updated_date','deleted_by','deleted_date')
+        fields = ['ItemGroup','itemcategory_title','itemcategory_title_bangla','itemcategory_code','isactive','CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate' ]
+        exclude = ('CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate')
         widgets = {
             'itemcategory_title': forms.TextInput(),
             'itemcategory_title_bangla': forms.TextInput(),

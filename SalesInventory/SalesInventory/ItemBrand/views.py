@@ -16,15 +16,15 @@ from .forms import ItemBrandForm
 
 def itembrand_list(request):
     assert isinstance(request, HttpRequest)
-    objs = ItemBrand.objects.all().filter(deleted_by=None)
-    # print(ItemBrand.objects.all().filter(deleted_by=None).count())
+    objs = ItemBrand.objects.all().filter(DeletedBy=None)
+    # print(ItemBrand.objects.all().filter(DeletedBy=None).count())
     return render(request, 'itembrand/itembrand_list.html', {'objs': objs})
 
 def itembrand_create(request):
     if request.method == 'POST':
         form = ItemBrandForm(request.POST)
-        form.instance.created_by=request.user.username #'Admin'
-        form.instance.created_date = datetime.now()
+        form.instance.CreatedBy=request.user.username #'Admin'
+        form.instance.CreatedDate = datetime.now()
     else:
         form = ItemBrandForm()
     return save_itembrand_form(request, form, 'itembrand/includes/partial_itembrand_create.html','Save')
@@ -36,7 +36,7 @@ def save_itembrand_form(request, form, template_name, operation_name):
             form.save()
             data['data_operation'] = operation_name
             data['form_is_valid'] = True
-            objs = ItemBrand.objects.all().filter(deleted_by=None)
+            objs = ItemBrand.objects.all().filter(DeletedBy=None)
             data['html_list'] = render_to_string('itembrand/includes/partial_itembrand_list.html', {
                 'objs': objs
             })
@@ -60,10 +60,10 @@ def itembrand_delete(request, pk):
     obj = get_object_or_404(ItemBrand, pk=pk)
     data = dict()
     if request.method == 'POST':
-        ItemBrand.objects.filter(pk=pk).update(deleted_by=request.user.username,deleted_date = datetime.now())
+        ItemBrand.objects.filter(pk=pk).update(DeletedBy=request.user.username,DeletedDate = datetime.now())
         data['data_operation'] = 'Delete'
         data['form_is_valid'] = True  # This is just to play along with the existing code
-        objs = ItemBrand.objects.all().filter(deleted_by=None)
+        objs = ItemBrand.objects.all().filter(DeletedBy=None)
         data['html_list'] = render_to_string('itembrand/includes/partial_itembrand_list.html', {
             'objs': objs
         })

@@ -14,8 +14,8 @@ class UnitofMeasureForm(ModelForm):
             'uom_shortname': 'Uom Short Name : ',
             'isactive':'Status : '
         }
-        fields = ['unitbasisname','uom_name','uom_shortname','isactive','created_by','created_date','updated_by','updated_date','deleted_by','deleted_date' ]        
-        exclude = ('created_by','created_date','updated_by','updated_date','deleted_by','deleted_date')
+        fields = ['unitbasisname','uom_name','uom_shortname','isactive','CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate' ]        
+        exclude = ('CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate')
         widgets = {
             'unitbasisname': forms.Select(),
             'uom_name': forms.TextInput(),
@@ -55,7 +55,7 @@ class UnitofMeasureDetailsForm(ModelForm):
             'convertionvalue':'Conversion Value',
         }
         fields = ['uomid','uomdetails_name','uomdetails_shortname','convertionvalue','isbaseuom','created_by','created_date','updated_by','updated_date','deleted_by','deleted_date' ]
-        exclude = ('created_by','created_date','updated_by','updated_date','deleted_by','deleted_date')
+        exclude = ('CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate')
         widgets = {
             'uomid': forms.HiddenInput(),
             'uomdetails_name': forms.TextInput(),

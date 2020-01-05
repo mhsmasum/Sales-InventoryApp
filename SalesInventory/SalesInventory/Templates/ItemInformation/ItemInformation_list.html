@@ -1,0 +1,44 @@
+{% extends 'base/_base.html' %}
+{% block title %} Item Information {% endblock %}
+{% block content %}
+
+<div class="card-text">
+    <p>
+        <button type="button" class="btn btn-outline-primary box-shadow-3" id="btn-new" data-url="{% url 'ItemInformation_create' %}">
+          <span class="fa fa-plus"></span>
+          New Item
+        </button>
+      </p>
+  </div>
+<div>
+  <table class="table table-hover table-responsive" id="table">
+    <thead>
+      <tr>
+        <th>Sl#</th>
+        <th>Item Name</th>
+        <th>Item Code</th>
+        <th>Item Brand</th>
+        <th>Item Category</th>
+        <th>Size</th>
+        <th>Uom</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% include 'ItemInformation/includes/partial_ItemInformation_list.html' %}
+    </tbody>
+  </table>
+</div>  
+<!-- THE MODAL WE WILL BE USING -->
+<div class="modal animated fadeInDown" id="modal" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+  </div>
+    {% endblock %}
+    {% load static %}
+    {% block javascript %}
+    <script src="{% static 'appScripts/ItemInformation.js' %}"></script>
+    {% endblock %}
