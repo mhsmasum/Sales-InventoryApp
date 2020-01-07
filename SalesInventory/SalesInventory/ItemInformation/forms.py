@@ -53,10 +53,11 @@ class ItemInformationForm(ModelForm):
         self.fields['IsActive'].widget.attrs['class'] = 'iCheck'
         self.fields['Remarks'].widget.attrs['class'] = 'form-control'
         self.fields['ItemPackSize'].widget.attrs['class'] = 'form-control select2 description'
-        self.fields['ItemPackSize'].queryset = ItemPackSize.objects.filter(IsActive = True,DeletedBy=None).distinct()
+        self.fields['ItemPackSize'].queryset = ItemPackSize.objects.values_list('ItemPackSizeName', flat=True).filter(IsActive = True,DeletedBy=None).distinct()
         self.fields['ItemBrand'].widget.attrs['class'] = 'form-control select2'
-        self.fields['ItemBrand'].queryset = ItemBrand.objects.filter(IsActive = True,DeletedBy=None)
+        self.fields['ItemBrand'].queryset = ItemBrand.objects.values_list('itembrand_name', flat=True).filter(IsActive = True,DeletedBy=None)
         self.fields['ItemCategory'].widget.attrs['class'] = 'form-control select2'
-        self.fields['ItemCategory'].queryset = ItemCategory.objects.filter(IsActive = True,DeletedBy=None)
+        self.fields['ItemCategory'].queryset = ItemCategory.objects.values_list('itemcategory_title', flat=True).filter(IsActive = True,DeletedBy=None)
         self.fields['Uom'].widget.attrs['class'] = 'form-control select2'
-        self.fields['Uom'].queryset = UnitofMeasure.objects.filter(IsActive = True,DeletedBy=None)
+        self.fields['Uom'].queryset = UnitofMeasure.objects.values_list('uom_name', flat=True).filter(IsActive = True,DeletedBy=None)
+        # self.fields['Uom'].queryset = UnitofMeasure.objects.filter(IsActive = True,DeletedBy=None)

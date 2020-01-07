@@ -41,4 +41,7 @@
     {% load static %}
     {% block javascript %}
     <script src="{% static 'appScripts/ItemInformation.js' %}"></script>
+    <script>
+      localStorage.setItem('activeMenu', 'Item Information');
+      </script>
     {% endblock %}
