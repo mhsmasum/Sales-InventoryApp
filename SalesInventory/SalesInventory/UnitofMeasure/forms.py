@@ -12,15 +12,15 @@ class UnitofMeasureForm(ModelForm):
             'unitbasisname': 'Unit Basis Name : ',
             'uom_name': 'UOM Name  : ',
             'uom_shortname': 'Uom Short Name : ',
-            'isactive':'Status : '
+            'IsActive':'Status : '
         }
-        fields = ['unitbasisname','uom_name','uom_shortname','isactive','CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate' ]        
+        fields = ['unitbasisname','uom_name','uom_shortname','IsActive','CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate' ]        
         exclude = ('CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate')
         widgets = {
             'unitbasisname': forms.Select(),
             'uom_name': forms.TextInput(),
             'uom_shortname': forms.TextInput(),
-            'isactive': forms.CheckboxInput(),            
+            'IsActive': forms.CheckboxInput(),            
         }
         parsley_extras = {
             "unitbasisname": {
@@ -39,7 +39,7 @@ class UnitofMeasureForm(ModelForm):
         self.fields['unitbasisname'].widget.attrs['class'] = 'form-control select2 unitbasisname'
         self.fields['uom_name'].widget.attrs['class'] = 'form-control uom_name'
         self.fields['uom_shortname'].widget.attrs['class'] = 'form-control uom_shortname'
-        self.fields['isactive'].widget.attrs['class'] = 'iCheck isactive'
+        self.fields['IsActive'].widget.attrs['class'] = 'iCheck IsActive'
             
 
 
@@ -54,7 +54,7 @@ class UnitofMeasureDetailsForm(ModelForm):
             # 'isbaseuom':'Base UOM',
             'convertionvalue':'Conversion Value',
         }
-        fields = ['uomid','uomdetails_name','uomdetails_shortname','convertionvalue','isbaseuom','created_by','created_date','updated_by','updated_date','deleted_by','deleted_date' ]
+        fields = ['uomid','uomdetails_name','uomdetails_shortname','convertionvalue','isbaseuom','CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate' ]
         exclude = ('CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate')
         widgets = {
             'uomid': forms.HiddenInput(),

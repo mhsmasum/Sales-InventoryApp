@@ -75,12 +75,12 @@ def uom_update(request, pk):
         uom_name = json_obj.get('uom_name')
         uomid = pk #json_obj.get('id')
         uom_shortname = json_obj.get('uom_shortname')
-        isactive = json_obj.get('isactive')
+        IsActive = json_obj.get('IsActive')
         UnitofMeasure.objects.filter(pk=int(uomid)).update(
             unitbasisname=unitbasisname,
             uom_name=uom_name,
             uom_shortname=uom_shortname,
-            isactive=isactive,
+            IsActive=IsActive,
             UpdatedBy=request.user.username,
             UpdatedDate = datetime.now())
         uomMaster = UnitofMeasure.objects.get(pk=pk)

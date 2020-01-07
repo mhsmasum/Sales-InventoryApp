@@ -15,17 +15,17 @@ class ItemBrandForm(ModelForm):
             'itembrand_name_bangla': 'Name (Bangla) : ',
             'itembrand_remarks': 'Remarks : ',
             'itembrand_code': 'Code : ',
-            'isactive':'Status : '
+            'IsActive':'Status : '
            
         }
-        fields = ['itembrand_name','itembrand_name_bangla','itembrand_remarks','itembrand_code','isactive','CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate']
+        fields = ['itembrand_name','itembrand_name_bangla','itembrand_remarks','itembrand_code','IsActive','CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate']
         exclude = ('CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate')
         widgets = {
             'itembrand_name': forms.TextInput(),
             'itembrand_name_bangla': forms.TextInput(),
             'itembrand_remarks': forms.Textarea(attrs={'rows':2}),
             'itembrand_code': forms.TextInput(),
-            'isactive': forms.CheckboxInput(),
+            'IsActive': forms.CheckboxInput(),
             
         }
         parsley_extras = {
@@ -39,7 +39,7 @@ class ItemBrandForm(ModelForm):
         self.fields['itembrand_name_bangla'].widget.attrs['class'] = 'form-control'
         self.fields['itembrand_remarks'].widget.attrs['class'] = 'form-control'
         self.fields['itembrand_code'].widget.attrs['class'] = 'form-control'
-        self.fields['isactive'].widget.attrs['class'] = 'iCheck'
+        self.fields['IsActive'].widget.attrs['class'] = 'iCheck'
             
 
 

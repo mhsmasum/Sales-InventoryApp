@@ -55,8 +55,8 @@ class ItemInformationForm(ModelForm):
         self.fields['ItemPackSize'].widget.attrs['class'] = 'form-control select2 description'
         self.fields['ItemPackSize'].queryset = ItemPackSize.objects.filter(IsActive = True,DeletedBy=None).distinct()
         self.fields['ItemBrand'].widget.attrs['class'] = 'form-control select2'
-        self.fields['ItemBrand'].queryset = ItemBrand.objects.filter(isactive = True,DeletedBy=None)
+        self.fields['ItemBrand'].queryset = ItemBrand.objects.filter(IsActive = True,DeletedBy=None)
         self.fields['ItemCategory'].widget.attrs['class'] = 'form-control select2'
-        self.fields['ItemCategory'].queryset = ItemCategory.objects.filter(isactive = True,DeletedBy=None)
+        self.fields['ItemCategory'].queryset = ItemCategory.objects.filter(IsActive = True,DeletedBy=None)
         self.fields['Uom'].widget.attrs['class'] = 'form-control select2'
-        self.fields['Uom'].queryset = UnitofMeasure.objects.filter(isactive = True,DeletedBy=None)
+        self.fields['Uom'].queryset = UnitofMeasure.objects.filter(IsActive = True,DeletedBy=None)

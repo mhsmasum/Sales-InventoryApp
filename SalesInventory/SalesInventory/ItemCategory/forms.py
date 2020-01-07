@@ -12,16 +12,16 @@ class ItemCategoryForm(ModelForm):
             'itemcategory_title': 'Title : ',
             'itemcategory_title_bangla': 'Title (Bangla) : ',
             'itemcategory_code': 'Code : ',
-            'isactive':'Status : ',
+            'IsActive':'Status : ',
             'ItemGroup': 'Group Name : '           
         }
-        fields = ['ItemGroup','itemcategory_title','itemcategory_title_bangla','itemcategory_code','isactive','CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate' ]
+        fields = ['ItemGroup','itemcategory_title','itemcategory_title_bangla','itemcategory_code','IsActive','CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate' ]
         exclude = ('CreatedBy','CreatedDate','UpdatedBy','UpdatedDate','DeletedBy','DeletedDate')
         widgets = {
             'itemcategory_title': forms.TextInput(),
             'itemcategory_title_bangla': forms.TextInput(),
             'itemcategory_code': forms.TextInput(),
-            'isactive': forms.CheckboxInput(),
+            'IsActive': forms.CheckboxInput(),
             'ItemGroup':forms.Select()            
         }
         parsley_extras = {
@@ -39,4 +39,4 @@ class ItemCategoryForm(ModelForm):
         self.fields['itemcategory_title'].widget.attrs['class'] = 'form-control'
         self.fields['itemcategory_title_bangla'].widget.attrs['class'] = 'form-control'
         self.fields['itemcategory_code'].widget.attrs['class'] = 'form-control'
-        self.fields['isactive'].widget.attrs['class'] = 'iCheck'
+        self.fields['IsActive'].widget.attrs['class'] = 'iCheck'

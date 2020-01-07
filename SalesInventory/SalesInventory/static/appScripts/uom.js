@@ -47,7 +47,7 @@ $(document).off("click", ".btn-row-remove").on("click", ".btn-row-remove", funct
         jsonData["unitbasisname"] = $.trim($(".unitbasisname").val());
         jsonData["uom_name"] = $.trim($(".uom_name").val());
         jsonData["uom_shortname"] = $.trim($(".uom_shortname").val());
-        jsonData["isactive"] = $('.isactive').is(':checked');
+        jsonData["IsActive"] = $('.IsActive').is(':checked');
         
         var jsonObj = [];
         var detailObj = {};
@@ -87,7 +87,7 @@ function saveobject(){
        jsonData["unitbasisname"] = $.trim($(".unitbasisname").val());
        jsonData["uom_name"] = $.trim($(".uom_name").val());
        jsonData["uom_shortname"] = $.trim($(".uom_shortname").val());
-       jsonData["isactive"] = $('.isactive').is(':checked');
+       jsonData["IsActive"] = $('.IsActive').is(':checked');
        
        var jsonObj = [];
         $('#tbl tbody tr').each(function(index,tblRow) { 

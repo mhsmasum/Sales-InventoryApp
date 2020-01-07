@@ -6,7 +6,7 @@ class ItemBrand(models.Model):
     itembrand_name_bangla= models.CharField(max_length=200,null=True,blank=True)
     itembrand_remarks= models.CharField(max_length=200,null=True,blank=True)
     itembrand_code= models.CharField(max_length=200,null=True,blank=True)
-    isactive= models.BooleanField(default=True)
+    IsActive= models.BooleanField(default=True)
 
     CreatedBy= models.CharField(max_length=200,null=True,blank=True)
     CreatedDate= models.DateTimeField(null=True,blank=True)

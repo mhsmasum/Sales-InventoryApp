@@ -11,7 +11,7 @@ class UnitofMeasure(models.Model):
     unitbasisname = models.CharField(max_length=100,choices=UNITBASISNAME_CHOICES)
     uom_name= models.CharField(max_length=200)
     uom_shortname= models.CharField(max_length=50)
-    isactive= models.BooleanField(default=True)
+    IsActive= models.BooleanField(default=True)
     
     CreatedBy= models.CharField(max_length=200,null=True,blank=True)
     CreatedDate= models.DateTimeField(null=True,blank=True)
@@ -30,12 +30,12 @@ class UnitofMeasureDetails(models.Model):
     isbaseuom= models.BooleanField(default=False)
     convertionvalue= models.DecimalField(decimal_places=2,max_digits=10)
 
-    created_by= models.CharField(max_length=200,null=True,blank=True)
-    created_date= models.DateTimeField(null=True,blank=True)
-    updated_by= models.CharField(max_length=200,null=True,blank=True)
-    updated_date= models.DateTimeField(null=True,blank=True)
-    deleted_by= models.CharField(max_length=200,null=True,blank=True)
-    deleted_date= models.DateTimeField(null=True,blank=True)
+    CreatedBy= models.CharField(max_length=200,null=True,blank=True)
+    CreatedDate= models.DateTimeField(null=True,blank=True)
+    UpdatedBy= models.CharField(max_length=200,null=True,blank=True)
+    UpdatedDate= models.DateTimeField(null=True,blank=True)
+    DeletedBy= models.CharField(max_length=200,null=True,blank=True)
+    DeletedDate= models.DateTimeField(null=True,blank=True)
 
     def __str__(self):
         return self.uomdetails_name        

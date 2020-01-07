@@ -16,15 +16,15 @@ from .forms import ItemColorForm
 
 def itemcolor_list(request):
     assert isinstance(request, HttpRequest)
-    objs = ItemColor.objects.all().filter(deleted_by=None)
+    objs = ItemColor.objects.all().filter(DeletedBy=None)
     # print(Itemcolor.objects.all().filter(deleted_by=None).count())
     return render(request, 'itemcolor/itemcolor_list.html', {'objs': objs})
 
 def itemcolor_create(request):
     if request.method == 'POST':
         form = ItemColorForm(request.POST)
-        form.instance.created_by=request.user.username #'Admin'
-        form.instance.created_date = datetime.now()
+        form.instance.CreatedBy=request.user.username #'Admin'
+        form.instance.CreatedDate = datetime.now()
     else:
         form = ItemColorForm()
     return save_itemcolor_form(request, form, 'itemcolor/includes/partial_itemcolor_create.html','Save')
@@ -36,7 +36,7 @@ def save_itemcolor_form(request, form, template_name, operation_name):
             form.save()
             data['data_operation'] = operation_name
             data['form_is_valid'] = True
-            objs = ItemColor.objects.all().filter(deleted_by=None)
+            objs = ItemColor.objects.all().filter(DeletedBy=None)
             data['html_list'] = render_to_string('itemcolor/includes/partial_itemcolor_list.html', {
                 'objs': objs
             })
@@ -49,8 +49,8 @@ def save_itemcolor_form(request, form, template_name, operation_name):
 def itemcolor_update(request, pk):
     obj = get_object_or_404(ItemColor, pk=pk)
     if request.method == 'POST':
-        obj.updated_by=request.user.username #'Admin'
-        obj.updated_date = datetime.now()
+        obj.UpdatedBy=request.user.username #'Admin'
+        obj.UpdatedDate = datetime.now()
         form = ItemColorForm(request.POST, instance=obj)        
     else:
         form = ItemColorForm(instance=obj)
@@ -60,10 +60,10 @@ def itemcolor_delete(request, pk):
     obj = get_object_or_404(ItemColor, pk=pk)
     data = dict()
     if request.method == 'POST':
-        ItemColor.objects.filter(pk=pk).update(deleted_by=request.user.username,deleted_date = datetime.now())
+        ItemColor.objects.filter(pk=pk).update(DeletedBy=request.user.username,DeletedDate = datetime.now())
         data['data_operation'] = 'Delete'
         data['form_is_valid'] = True  # This is just to play along with the existing code
-        objs = ItemColor.objects.all().filter(deleted_by=None)
+        objs = ItemColor.objects.all().filter(DeletedBy=None)
         data['html_list'] = render_to_string('itemcolor/includes/partial_itemcolor_list.html', {
             'objs': objs
         })
